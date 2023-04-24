@@ -10,8 +10,15 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
+    <strong>Amount:</strong>
+    <% @group_sums.each do |category, sum| %>
+      <tr>
+      <%if group.id == category%>
+        <td><%= sum %></td>
+        <% end %>
+      </tr>
+    <% end %>
   </p>
+
 
 </div>

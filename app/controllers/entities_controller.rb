@@ -13,7 +13,7 @@ class EntitiesController < ApplicationController
   # GET /entities/new
   def new
     @entity = Entity.new
-    @groups = current_user.groups
+    @groups = Group.all
   end
 
   # GET /entities/1/edit
