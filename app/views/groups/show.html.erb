@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @group %>
+
+<div>
+  <%= link_to "Back to groups", user_groups_path(params[:user_id]) %>
+
+  <%= button_to "Destroy this group", user_group_path(params[:user_id], @group), method: :delete %>
+
+  <div id="entities">
+  <% @entities.each do |entity| %>
+      <%puts "********************************"%>
+  <% p @entities[0].name%>
+  <%puts "********************************"%>
+
+  <%puts "********************************"%>
+    <%#= render "entities/entity" %>
+    <div>
+  <p>
+    <strong>Name:</strong>
+    <%= entity.name %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= entity.amount %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= entity.user_id %>
+  </p>
+
+</div>
+    <p>
+    <%#  <%= link_to "Show this entity", user_group_entity(params[:user_id, :group_id]), entity.id %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New entity", new_user_group_entity_path(params[:user_id], params[:id]) %>
+</div>
