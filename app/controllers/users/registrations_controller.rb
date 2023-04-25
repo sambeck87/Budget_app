@@ -1,10 +1,10 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
-      protected
+    protected
 
-  def after_sign_up_path_for(resource)
-    user_groups_path(current_user.id)
-  end
+    def after_sign_up_path_for(_resource)
+      user_groups_path(current_user.id)
+    end
     # before_action :configure_sign_up_params, only: [:create]
     # before_action :configure_account_update_params, only: [:update]
 

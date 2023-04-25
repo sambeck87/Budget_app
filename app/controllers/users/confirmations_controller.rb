@@ -1,7 +1,7 @@
 module Users
   class ConfirmationsController < Devise::ConfirmationsController
-    def after_confirmation_path_for(resource_name, resource)
-       user_groups_path(current_user.id)
+    def after_confirmation_path_for(_resource_name, _resource)
+      user_groups_path(current_user.id)
     end
     # GET /resource/confirmation/new
     # def new
