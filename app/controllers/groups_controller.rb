@@ -12,7 +12,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    if Entity.includes([:groups]).where(author_id: current_user.id).exists?
+    @entities = Entity.includes([:groups]).order(created_at: :desc).all
+    else
     @entities = Entity.order(created_at: :desc).all
+    end
     @group_sums = Group.left_joins(:entity).distinct.group('groups.id').sum('entities.amount')
   end
 
