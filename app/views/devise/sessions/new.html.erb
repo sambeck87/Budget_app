@@ -1,26 +1,17 @@
-<h2 class="d-flex justify-content-around my-4">Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field d-flex flex-column align-items-center my-4">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <br>
+  <div class="field max_width">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"max_width fields" %>
   </div>
 
-  <div class="field d-flex flex-column align-items-center my-4">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class:"max_width fields" %>
+  </div><br>
+
+  <div class="max_width d-flex justify-content-around">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field d-flex flex-column align-items-center my-4">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
   <div class="actions d-flex justify-content-around my-4">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

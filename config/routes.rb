@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'page#index'
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
-  #resources :groups
-  #resources :entities
+    sessions: 'users/sessions'
+  }
+  # resources :groups
+  # resources :entities
   resources :users do
     resources :groups do
       resources :entities

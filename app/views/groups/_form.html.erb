@@ -12,16 +12,14 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Category Name", class:"max_width fields" %>
   </div>
 
   <div>
-    <%= form.label :url_icon, style: "display: block" %>
-    <%= form.text_area :icon %>
-  </div>
+    <%= form.text_area :icon, placeholder: "URL_icon", class:"max_width fields" %>
+  </div><br>
 
-  <div>
-    <%= form.submit %>
+  <div class="max_width d-flex justify-content-around">
+    <%= form.submit "Save", class:"btn bg_primary white" %>
   </div>
 <% end %>

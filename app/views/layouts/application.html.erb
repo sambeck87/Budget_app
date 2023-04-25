@@ -11,27 +11,51 @@
   </head>
 
   <body>
-  <div class="bd-example">
-<nav id="navbar" class="navbar navbar-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler white" type="button"  aria-label="navigation">
-      <span class="navbar-toggler-icon white  "></span>
-    </button>
+    <div class="bd-example">
+      <nav class="navbar navbar-dark bg_primary">
+        <div class="container-fluid">
+          <% if request.url.include?('sign_in') || request.url.include?('sign_up') || request.url.include?('password/new') %>
+            <%= link_to "<-", root_path, class: "btn white" %>
+          <% elsif request.url.include?('entities/new') %>
+            <%= link_to "<-", user_group_path(current_user.id, params[:group_id]), class: "btn white" %>
+          <% elsif request.url.include?('groups/') %>
+            <%= link_to "<-", user_groups_path(current_user.id), class: "btn white" %>
+          <% else %>
+            <button class="navbar-toggler white" type="button"  aria-label="navigation">
+            <span class="navbar-toggler-icon white  "></span>
+            </button>
+          <% end %>
 
-      <%# if current_page?(controller: 'groups', action: 'index') ||  current_page?(user_groups_path)%>
-        <span class="navbar-text">Categories</span>
-      <%# elsif current_page?(controller: 'groups', action: 'show') %>
-        <span class="navbar-text">Transactions</span>
-      <%# else%>
-        <%#= "" %>
-      <%# end %>
+          <% if request.url.include?('groups/') && !request.url.include?('groups/new') %>
+            <span class="navbar-text">TRANSACTIONS</span>
+          <% elsif request.url.include?('groups/new') %>
+            <span class="navbar-text">NEW CATEGORY</span>
+          <% elsif request.url.include?('groups') %>
+            <span class="navbar-text">CATEGORIES</span>
+          <% elsif request.url.include?('sign_in') %>
+            <span class="navbar-text">LOGIN</span>
+          <% elsif request.url.include?('sign_up') %>
+            <span class="navbar-text">REGISTER</span>
+          <% elsif request.url.include?('password/new') %>
+            <span class="navbar-text">RECOVER PASSWORD</span>
+          <% else %>
+            <%# comment %>
+          <% end %>
 
-    <% if user_signed_in? %>
-      <%= link_to "Log-out", destroy_user_session_path, class:"btn btn-warning" %>
-    <% end %>
-  </div>
-</nav>
-</div>
+
+          <% if user_signed_in? %>
+            <%= link_to "Log-out", destroy_user_session_path, class:"btn btn-warning" %>
+          <% elsif request.url.include?('sign_in') %>
+            <span class="navbar-text">login</span>
+          <% elsif request.url.include?('sign_up') %>
+            <span class="navbar-text">sign-up</span>
+          <% elsif request.url.include?('password/new') %>
+            <span class="navbar-text">forgot?</span>
+          <% else %>
+          <% end %>
+        </div>
+      </nav>
+    </div>
 
     <% if notice%>
        <div class="alert alert-success" role="alert"><%= notice %>

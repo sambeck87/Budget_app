@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -30,6 +28,6 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
 
     can %i[read create update destroy], Group, user_id: user.id
-    can %i[read create update destroy], Entity, user_id: user.id
+    can %i[read create update destroy], Entity, author_id: user.id
   end
 end

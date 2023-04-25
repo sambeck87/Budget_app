@@ -1,15 +1,13 @@
 <%= render @group %>
 
 <div>
-  <%= link_to "Back to categories", user_groups_path(params[:user_id]) %>
-
-  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete %>
+  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete, class:"btn btn-danger max_width" %>
 
   <div id="entities">
   <% @entities.each do |entity| %>
   <% if can? :read, entity %>
   <% if entity.groups.any? { |group| group.id == params[:id].to_i } %>
-    <div>
+    <div class="prev_trans d-flex justify-content-between px-3">
   <p>
     <strong>Name:</strong>
     <%= entity.name %>
@@ -28,5 +26,7 @@
 </div>
 
 <% end %>
-<%= link_to "New transaction", new_user_group_entity_path(params[:user_id], params[:id]) %>
+<div class="green d-flex flex-wrap justify-content-around">
+<%= link_to "New transaction", new_user_group_entity_path(params[:user_id], params[:id]), class:"btn inter" %>
+</div>
 </div>

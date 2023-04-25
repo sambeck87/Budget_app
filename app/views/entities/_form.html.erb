@@ -12,26 +12,28 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_area :name %>
+    <%= form.text_field :name, placeholder: "Name", class:"max_width fields" %>
   </div>
 
   <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, placeholder: "Amount", class:"max_width fields" %>
   </div>
 
 <div>
-  <%# <%= form.label :group_ids, "Groups" %>
-  <%# <%= form.collection_check_boxes(:group_ids, @groups, :id, :name) %>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Select one or more categories
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+      <%= form.collection_select :groups, current_user.groups, :id, :name, { prompt: "" }, { class: "input max_width field accordion-body", multiple: true } %>
+    </div>
+  </div>
+</div><br>
 
-<%= form.collection_select :groups, current_user.groups, :id, :name, { prompt: "Select one or more categories" }, { class: "input", multiple: true } %>
-
-
-</div>
-
-  <div>
-    <%= form.submit "Save" %>
+  <div class="max_width d-flex justify-content-around">
+    <%= form.submit "Save", class:"btn bg_primary white" %>
   </div>
 <% end %>
 
