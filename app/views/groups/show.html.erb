@@ -1,18 +1,14 @@
 <%= render @group %>
 
 <div>
-  <%= link_to "Back to groups", user_groups_path(params[:user_id]) %>
+  <%= link_to "Back to categories", user_groups_path(params[:user_id]) %>
 
-  <%= button_to "Destroy this group", user_group_path(params[:user_id], @group), method: :delete %>
+  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete %>
 
   <div id="entities">
   <% @entities.each do |entity| %>
-      <%puts "********************************"%>
-  <% p @entities[0].name%>
-  <%puts "********************************"%>
-
-  <%puts "********************************"%>
-    <%#= render "entities/entity" %>
+  <% if can? :read, entity %>
+  <% if entity.groups.any? { |group| group.id == params[:id].to_i } %>
     <div>
   <p>
     <strong>Name:</strong>
@@ -23,12 +19,7 @@
     <strong>Amount:</strong>
     <%= entity.amount %>
   </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= entity.user_id %>
-  </p>
-
+<% end %>
 </div>
     <p>
     <%#  <%= link_to "Show this entity", user_group_entity(params[:user_id, :group_id]), entity.id %>
@@ -36,5 +27,6 @@
   <% end %>
 </div>
 
-<%= link_to "New entity", new_user_group_entity_path(params[:user_id], params[:id]) %>
+<% end %>
+<%= link_to "New transaction", new_user_group_entity_path(params[:user_id], params[:id]) %>
 </div>

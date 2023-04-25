@@ -11,6 +11,28 @@
   </head>
 
   <body>
+  <div class="bd-example">
+<nav id="navbar" class="navbar navbar-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler white" type="button"  aria-label="navigation">
+      <span class="navbar-toggler-icon white  "></span>
+    </button>
+
+      <%# if current_page?(controller: 'groups', action: 'index') ||  current_page?(user_groups_path)%>
+        <span class="navbar-text">Categories</span>
+      <%# elsif current_page?(controller: 'groups', action: 'show') %>
+        <span class="navbar-text">Transactions</span>
+      <%# else%>
+        <%#= "" %>
+      <%# end %>
+
+    <% if user_signed_in? %>
+      <%= link_to "Log-out", destroy_user_session_path, class:"btn btn-warning" %>
+    <% end %>
+  </div>
+</nav>
+</div>
+
     <% if notice%>
        <div class="alert alert-success" role="alert"><%= notice %>
        </div>

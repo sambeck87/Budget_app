@@ -1,24 +1,26 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
+<div class="prev_trans d-flex justify-content-between">
+  <div>
+    <img class=icon src="<%= group.icon %>">
+  </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
+  <div class="d-flex flex-column justify-content-between">
+    <p class="group_name">
+      <%= group.name %>
+    </p>
 
-  <p>
-    <strong>Amount:</strong>
+    <p class="date">
+      <%= group.created_at.strftime('%Y-%m-%d')%>
+    </p>
+  </div>
+
+  <p class="justify-self-end">
+    <strong class="group_name">
     <% @group_sums.each do |category, sum| %>
       <tr>
       <%if group.id == category%>
-        <td><%= sum %></td>
+        <td>$<%= sum %>0</td>
         <% end %>
       </tr>
     <% end %>
-  </p>
-
-
+    </strong>
 </div>

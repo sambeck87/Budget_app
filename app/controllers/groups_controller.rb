@@ -4,14 +4,14 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = Group.all
-    @group_sums = Group.joins(:entity).group('groups.id').sum('entities.amount')
-
+    @group_sums = Group.left_joins(:entity).distinct.group('groups.id').sum('entities.amount')
+    @total_amount = Entity.joins(groups: :user).where(groups: { user_id: current_user.id }).distinct.sum(:amount)
   end
 
   # GET /groups/1 or /groups/1.json
   def show
-    @entities = Entity.all
-    @group_sums = Group.joins(:entity).group('groups.id').sum('entities.amount')
+    @entities = Entity.order(created_at: :desc).all
+    @group_sums = Group.left_joins(:entity).distinct.group('groups.id').sum('entities.amount')
 
   end
 
@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.user_id = current_user.id
     respond_to do |format|
       if @group.save
         format.html { redirect_to user_groups_path, notice: "Group was successfully created." }

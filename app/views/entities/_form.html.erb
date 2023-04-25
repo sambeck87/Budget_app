@@ -21,21 +21,17 @@
     <%= form.text_field :amount %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-
 <div>
   <%# <%= form.label :group_ids, "Groups" %>
   <%# <%= form.collection_check_boxes(:group_ids, @groups, :id, :name) %>
-<%= form.collection_select :groups, @groups, :id, :name, { prompt: "Seleccione uno o más grupos" }, { class: "input", multiple: true } %>
+
+<%= form.collection_select :groups, current_user.groups, :id, :name, { prompt: "Select one or more categories" }, { class: "input", multiple: true } %>
+
 
 </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save" %>
   </div>
 <% end %>
 

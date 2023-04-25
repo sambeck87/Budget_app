@@ -26,7 +26,7 @@ class EntitiesController < ApplicationController
     entity_params_with_groups[:groups] = Group.where(id: entity_params[:groups])
 
     @entity = Entity.new(entity_params_with_groups)
-
+    @entity.user_id = current_user.id
 
     respond_to do |format|
       if @entity.save

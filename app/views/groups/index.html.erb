@@ -1,12 +1,21 @@
-<h1>Categories</h1>
+<div id="total_amount" class="actions d-flex justify-content-around">
+<div>Total Amount: </div>
+<div>$<%=@total_amount%>0 </div>
+</div>
 
 <div id="groups">
   <% @groups.each do |group| %>
+  <%= link_to user_group_path(id: group.id) do%>
+  <div>
+  <% if can? :read, group %>
     <%= render group %>
-    <p>
-      <%= link_to "Show this group", user_group_path(id: group.id) %>
-    </p>
+
+  <% end %>
+  <% end %>
+  </div>
   <% end %>
 </div>
 
-<%= link_to "New group", new_user_group_path %>
+<div class="green d-flex flex-wrap justify-content-around">
+<%= link_to "New category", new_user_group_path, class:"btn inter" %>
+</div>
