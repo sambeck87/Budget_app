@@ -36,7 +36,16 @@ Rails.application.configure do
   end
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.smtp_settings = {
+    address:              'smtp-relay.sendinblue.com',
+    port:                 587,
+    user_name:            'microverstests@gmail.com',
+    password:             ENV['MAILER_PASS'],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

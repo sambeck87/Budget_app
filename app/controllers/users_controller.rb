@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    redirect_users_to_groups
   end
 
   # GET /users/1 or /users/1.json
@@ -65,5 +66,9 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name)
+  end
+
+  def redirect_users_to_groups
+    redirect_to user_groups_path(current_user.id) if request.path == users_path
   end
 end

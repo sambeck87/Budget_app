@@ -9,13 +9,12 @@
   <% if entity.groups.any? { |group| group.id == params[:id].to_i } %>
     <div class="prev_trans d-flex justify-content-between px-3">
   <p>
-    <strong>Name:</strong>
-    <%= entity.name %>
+    <strong><%= entity.name %></strong>
   </p>
 
   <p>
-    <strong>Amount:</strong>
-    <%= entity.amount %>
+    <strong>$<%= entity.amount %>0</strong>
+
   </p>
 <% end %>
 </div>
