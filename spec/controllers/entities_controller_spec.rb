@@ -6,12 +6,13 @@ RSpec.describe EntitiesController, type: :request do
   before do
     @user = User.create!(name: 'sambeck', email: 'sambeck@outlook.com', password: 'todoterreno')
     login_as(@user, scope: :user)
-    @group = Group.create!(name: 'Home', icon:'https://www.iconarchive.com/download/i103430/paomedia/small-n-flat/house.512.png', user_id: @user.id)
+    @group = Group.create!(name: 'Home',
+                           icon: 'https://www.icon/house.512.png', user_id: @user.id)
   end
 
   describe 'GET #new' do
     before do
-      get new_user_group_entity_path(user_id: @user.id, group_id:@group.id)
+      get new_user_group_entity_path(user_id: @user.id, group_id: @group.id)
     end
 
     it 'should returns a successful response' do

@@ -6,13 +6,14 @@ RSpec.describe 'entity', type: :feature do
     @user = User.create!(name: 'test', email: 'test@gmail.com', password: 'test12')
     login_as(@user, scope: :user)
 
-    @group = Group.create!(name: 'Home', icon:'https://www.iconarchive.com/download/i103430/paomedia/small-n-flat/house.512.png', user_id: @user.id)
-    @entity1 = Entity.create!(name:'table', amount:120.3, author_id: @user.id, groups:[@group])
-    @entity2 = Entity.create!(name:'paint', amount:230.2, author_id: @user.id, groups:[@group])
+    @group = Group.create!(name: 'Home',
+                           icon: 'https://www.iconarchive.com/download/12.png', user_id: @user.id)
+    @entity1 = Entity.create!(name: 'table', amount: 120.3, author_id: @user.id, groups: [@group])
+    @entity2 = Entity.create!(name: 'paint', amount: 230.2, author_id: @user.id, groups: [@group])
 
-    visit user_group_path(user_id: @user.id, id:@group.id)
+    visit user_group_path(user_id: @user.id, id: @group.id)
     @new_entity_url = new_user_group_entity_path(user_id: @user.id, group_id: @group.id)
-    @entities_url = user_group_path(user_id: @user.id, id:@group.id)
+    @entities_url = user_group_path(user_id: @user.id, id: @group.id)
   end
 
   context 'testing New trasaction button' do

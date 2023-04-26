@@ -1,18 +1,18 @@
 <%= render @group %>
 
 <div>
-  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete, class:"btn btn-danger max_width" %>
+  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete, class:"btn btn-danger max_width headlines" %>
 
   <div id="entities">
   <% @entities.each do |entity| %>
   <% if can? :read, entity %>
   <% if entity.groups.any? { |group| group.id == params[:id].to_i } %>
     <div class="prev_trans d-flex justify-content-between px-3">
-  <p>
+  <p class = 'headlines text'>
     <strong><%= entity.name %></strong>
   </p>
 
-  <p>
+  <p class = 'headlines text'>
     <strong>$<%= entity.amount %>0</strong>
 
   </p>

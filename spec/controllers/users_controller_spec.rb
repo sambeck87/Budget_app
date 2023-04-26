@@ -13,7 +13,7 @@ RSpec.describe UsersController, type: :request do
       get users_path
     end
 
-    it "redirects users to groups page" do
+    it 'redirects users to groups page' do
       expect(response).to redirect_to(user_groups_path(user_id: @user.id))
     end
   end

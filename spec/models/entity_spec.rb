@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Entity, type: :model do
   subject do
     @user = User.create!(name: 'sambeck', email: 'sambeck@outlook.com', password: 'todoterreno')
-    @group = Group.create!(name: 'Home', icon:'https://www.iconarchive.com/download/i103430/paomedia/small-n-flat/house.512.png', user_id: @user.id)
-    Entity.create!(name:'table', amount:120.3, author_id: @user.id, groups:[@group])
+    @group = Group.create!(name: 'Home',
+                           icon: 'https://www.iconarchive.com/download/i2.png', user_id: @user.id)
+    Entity.create!(name: 'table', amount: 120.3, author_id: @user.id, groups: [@group])
   end
 
   before { subject.save }

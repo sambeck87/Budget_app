@@ -32,6 +32,20 @@ a {
   background-color: #5fb523;
 }
 
+.text {
+  color: #434b54;
+}
+
+.headlines {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.general_text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
 .total_amount {
   background-color: white;
   font-weight: bold;
@@ -60,7 +74,7 @@ a {
 }
 
 .date {
-  font-size: 4vw;
+  font-size: 3vw;
 }
 
 .green {

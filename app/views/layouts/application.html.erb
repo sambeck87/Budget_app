@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -27,17 +30,17 @@
           <% end %>
 
           <% if request.url.include?('groups/') && !request.url.include?('groups/new') %>
-            <span class="navbar-text">TRANSACTIONS</span>
+            <span class="navbar-text headlines">TRANSACTIONS</span>
           <% elsif request.url.include?('groups/new') %>
-            <span class="navbar-text">NEW CATEGORY</span>
+            <span class="navbar-text headlines">NEW CATEGORY</span>
           <% elsif request.url.include?('groups') %>
-            <span class="navbar-text">CATEGORIES</span>
+            <span class="navbar-text headlines">CATEGORIES</span>
           <% elsif request.url.include?('sign_in') %>
-            <span class="navbar-text">LOGIN</span>
+            <span class="navbar-text headlines">LOGIN</span>
           <% elsif request.url.include?('sign_up') %>
-            <span class="navbar-text">REGISTER</span>
+            <span class="navbar-text headlines">REGISTER</span>
           <% elsif request.url.include?('password/new') %>
-            <span class="navbar-text">RECOVER PASSWORD</span>
+            <span class="navbar-text headlines">RECOVER PASSWORD</span>
           <% else %>
             <%# comment %>
           <% end %>

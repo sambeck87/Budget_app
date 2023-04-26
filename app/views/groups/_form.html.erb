@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div>
+  <div class='general_text text'>
     <%= form.text_field :name, placeholder: "Category Name", class:"max_width fields" %>
   </div>
 
-  <div>
+  <div class='general_text text'>
     <%= form.text_area :icon, placeholder: "URL_icon", class:"max_width fields" %>
   </div><br>
 
   <div class="max_width d-flex justify-content-around">
-    <%= form.submit "Save", class:"btn bg_primary white" %>
+    <%= form.submit "Save", class:"btn bg_primary white general_text" %>
   </div>
 <% end %>

@@ -6,9 +6,10 @@ RSpec.describe GroupsController, type: :request do
   before do
     @user = User.create!(name: 'sambeck', email: 'sambeck@outlook.com', password: 'todoterreno')
     login_as(@user, scope: :user)
-    @group = Group.create!(name: 'Home', icon:'https://www.iconarchive.com/download/i103430/paomedia/small-n-flat/house.512.png', user_id: @user.id)
-    @entity1 = Entity.create!(name:'table', amount:120.3, author_id: @user.id, groups:[@group])
-    @entity2 = Entity.create!(name:'paint', amount:230.2, author_id: @user.id, groups:[@group])
+    @group = Group.create!(name: 'Home',
+                           icon: 'https://www.iconarchive.com/download/i102.png', user_id: @user.id)
+    @entity1 = Entity.create!(name: 'table', amount: 120.3, author_id: @user.id, groups: [@group])
+    @entity2 = Entity.create!(name: 'paint', amount: 230.2, author_id: @user.id, groups: [@group])
   end
 
   describe 'GET #index' do
@@ -69,7 +70,6 @@ RSpec.describe GroupsController, type: :request do
     end
   end
 
-
   describe 'GET #show' do
     before do
       get user_group_path(user_id: @user.id, id: @group.id)
@@ -95,7 +95,6 @@ RSpec.describe GroupsController, type: :request do
       expect(response.body).to include('120.3')
       expect(response.body).to include('230.2')
     end
-
 
     it 'should displays the transactions name' do
       expect(response.body).to include('table')

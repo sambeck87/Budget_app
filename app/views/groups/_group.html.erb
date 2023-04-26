@@ -10,7 +10,7 @@
   </div>
   <% end %>
 
-  <div class="d-flex flex-column justify-content-between">
+  <div class="d-flex flex-column justify-content-between general_text text">
     <p class="group_name">
       <%= group.name %>
     </p>
@@ -24,7 +24,7 @@
   </div>
 
   <p class="justify-self-end">
-    <strong class="group_name">
+    <strong class="group_name headlines text">
     <% @group_sums.each do |category, sum| %>
       <tr>
       <%if group.id == category%>

@@ -1,9 +1,9 @@
 <div class="actions d-flex justify-content-around total_amount">
-<div>Total Amount: </div>
-<div>$<%=@total_amount%>0 </div>
+<div class='text general_text'>Total Amount: </div>
+<div class='headlines text'>$<%=@total_amount%>0 </div>
 </div>
 
-<div id="groups">
+<div id="groups" class='general_text text'>
   <% @groups.each do |group| %>
   <%= link_to user_group_path(id: group.id) do%>
   <div>
@@ -16,6 +16,6 @@
   <% end %>
 </div>
 
-<div class="green d-flex flex-wrap justify-content-around">
+<div class="green d-flex flex-wrap justify-content-around headlines">
 <%= link_to "New category", new_user_group_path, class:"btn inter" %>
 </div>

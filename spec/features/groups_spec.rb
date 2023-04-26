@@ -6,13 +6,14 @@ RSpec.describe 'group', type: :feature do
     @user = User.create!(name: 'test', email: 'test@gmail.com', password: 'test12')
     login_as(@user, scope: :user)
 
-    @group = Group.create!(name: 'Home', icon:'https://www.iconarchive.com/download/i103430/paomedia/small-n-flat/house.512.png', user_id: @user.id)
-    @entity1 = Entity.create!(name:'table', amount:120.3, author_id: @user.id, groups:[@group])
-    @entity2 = Entity.create!(name:'paint', amount:230.2, author_id: @user.id, groups:[@group])
+    @group = Group.create!(name: 'Home',
+                           icon: 'https://www.iconarchive.com/download/i12.png', user_id: @user.id)
+    @entity1 = Entity.create!(name: 'table', amount: 120.3, author_id: @user.id, groups: [@group])
+    @entity2 = Entity.create!(name: 'paint', amount: 230.2, author_id: @user.id, groups: [@group])
 
     visit user_groups_path(user_id: @user.id)
     @new_group_url = new_user_group_path(user_id: @user.id)
-    @entities_url = user_group_path(user_id: @user.id, id:@group.id)
+    @entities_url = user_group_path(user_id: @user.id, id: @group.id)
     @main_page_url = user_groups_path(user_id: @user.id)
   end
 
@@ -64,7 +65,7 @@ RSpec.describe 'group', type: :feature do
     end
   end
 
-    context 'Test back button' do
+  context 'Test back button' do
     before :each do
       click_link 'Home'
     end
@@ -74,4 +75,3 @@ RSpec.describe 'group', type: :feature do
     end
   end
 end
-
