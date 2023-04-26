@@ -63,6 +63,8 @@ This project allows you:
 
 <br>
 
+You can see a brief demonstration [here](https://www.loom.com/share/6d8b8c89add647c4b4f0dfcf6cce1762)
+
 ## 🛠 Built With <a name="built-with"></a>
 - Ruby
 - Rails
