@@ -1,0 +1,7 @@
+<h3 class = "d-flex justify-content-around my-5 headlines text" ><%= "Are you sure #{current_user.name}?" %></h3>
+
+<div class = "d-flex justify-content-between">
+  <%= link_to "Back main page", user_groups_path(user_id: current_user.id), class: "btn bg_primary mx-4 general_text white" %>
+
+  <%= button_to "Log-out", @user, method: :delete, class: "btn btn-danger mx-4 general_text" %>
+</div>

@@ -1,0 +1,17 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <br>
+  <div class="field max_width">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"max_width fields general_text text" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class:"max_width fields general_text text" %>
+  </div><br>
+
+  <div class="max_width d-flex justify-content-around general_text text">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+  </div>
+  <div class="actions d-flex justify-content-around my-4 general_text text">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>

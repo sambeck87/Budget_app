@@ -1,0 +1,25 @@
+<%= form_with(model: group, url: user_groups_path(params[:user_id])) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='general_text text'>
+    <%= form.text_field :name, placeholder: "Category Name", class:"max_width fields" %>
+  </div>
+
+  <div class='general_text text'>
+    <%= form.text_area :icon, placeholder: "URL_icon", class:"max_width fields" %>
+  </div><br>
+
+  <div class="max_width d-flex justify-content-around">
+    <%= form.submit "Save", class:"btn bg_primary white general_text" %>
+  </div>
+<% end %>

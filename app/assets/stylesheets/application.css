@@ -1,0 +1,97 @@
+body {
+  background-color: rgb(250, 240, 239);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.max_width {
+  width: 100%;
+}
+
+.fields {
+  padding: 2vw;
+  border: 1px solid rgb(250, 240, 239);
+}
+
+.white {
+  color: rgb(255, 240, 240);
+}
+
+.w85 {
+  width: 85%;
+}
+
+.bg_primary {
+  background-color: #3778c2;
+}
+
+.bg_secondary {
+  background-color: #5fb523;
+}
+
+.text {
+  color: #434b54;
+}
+
+.headlines {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.general_text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+.total_amount {
+  background-color: white;
+  font-weight: bold;
+  padding: 4vw 0;
+  margin-bottom: 4vw;
+}
+
+.prev_trans {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 7vw 0;
+  width: 90%;
+  margin: 4vw 5vw;
+}
+
+.icon {
+  width: 30vw;
+  height: 30vw;
+  margin-left: 3vw;
+}
+
+.group_name {
+  font-size: 5vw;
+  margin-right: 3vw;
+}
+
+.date {
+  font-size: 3vw;
+}
+
+.green {
+  background-color: #5fb523;
+  width: 100%;
+  height: 20vw;
+  align-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+}
+
+.inter {
+  border: white 2px solid;
+  width: 70%;
+  height: 70%;
+  color: white;
+  font-weight: bold;
+  padding: 3vw 0;
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+<% if request.url.include?('groups/') %>
+<div class="actions d-flex justify-content-around total_amount my-0">
+<% else %>
+<div class="prev_trans d-flex justify-content-between">
+<% end %>
+  <% if request.url.include?('groups/') %>
+  <% else %>
+  <div>
+    <img class=icon src="<%= group.icon %>">
+  </div>
+  <% end %>
+
+  <div class="d-flex flex-column justify-content-between general_text text">
+    <p class="group_name">
+      <%= group.name %>
+    </p>
+
+    <% if request.url.include?('groups/') %>
+    <% else %>
+    <p class="date">
+      <%= group.created_at.strftime('%Y-%m-%d')%>
+    </p>
+    <% end %>
+  </div>
+
+  <p class="justify-self-end">
+    <strong class="group_name headlines text">
+    <% @group_sums.each do |category, sum| %>
+      <tr>
+      <%if group.id == category%>
+        <td>$<%= sum %>0</td>
+        <% end %>
+      </tr>
+    <% end %>
+    </strong>
+</div>

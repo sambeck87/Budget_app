@@ -1,0 +1,12 @@
+<br>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"max_width fields" %>
+  </div><br>
+
+  <div class="actions max_width d-flex justify-content-around">
+    <%= f.submit "Send me reset password instructions" %>
+  </div>
+<% end %>

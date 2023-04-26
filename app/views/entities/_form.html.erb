@@ -1,0 +1,40 @@
+<%= form_with(model: entity, url: user_group_entities_path(params[:user_id], params[:group_id])) do |form| %>
+  <% if entity.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+      <ul>
+        <% entity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, placeholder: "Name", class:"max_width fields" %>
+  </div>
+
+  <div>
+    <%= form.text_field :amount, placeholder: "Amount", class:"max_width fields" %>
+  </div>
+
+<div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Select one or more categories
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+      <%= form.collection_select :groups, current_user.groups, :id, :name, { prompt: "" }, { class: "input max_width field accordion-body", multiple: true } %>
+    </div>
+  </div>
+</div><br>
+
+  <div class="max_width d-flex justify-content-around">
+    <%= form.submit "Save", class:"btn bg_primary white" %>
+  </div>
+<% end %>
+
+

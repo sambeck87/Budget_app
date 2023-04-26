@@ -1,0 +1,31 @@
+<%= render @group %>
+
+<div>
+  <%= button_to "Delete category", user_group_path(params[:user_id], @group), method: :delete, class:"btn btn-danger max_width headlines" %>
+
+  <div id="entities">
+  <% @entities.each do |entity| %>
+  <% if can? :read, entity %>
+  <% if entity.groups.any? { |group| group.id == params[:id].to_i } %>
+    <div class="prev_trans d-flex justify-content-between px-3">
+  <p class = 'headlines text'>
+    <strong><%= entity.name %></strong>
+  </p>
+
+  <p class = 'headlines text'>
+    <strong>$<%= entity.amount %>0</strong>
+
+  </p>
+<% end %>
+</div>
+    <p>
+    <%#  <%= link_to "Show this entity", user_group_entity(params[:user_id, :group_id]), entity.id %>
+    </p>
+  <% end %>
+</div>
+
+<% end %>
+<div class="green d-flex flex-wrap justify-content-around">
+<%= link_to "New transaction", new_user_group_entity_path(params[:user_id], params[:id]), class:"btn inter" %>
+</div>
+</div>
