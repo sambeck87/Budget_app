@@ -16,6 +16,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [Live Demo ](#live-demo-)
   - [💻 Getting Started ](#-getting-started-)
   - [To get a local copy up and running, follow these steps.](#to-get-a-local-copy-up-and-running-follow-these-steps)
     - [Prerequisites](#prerequisites)
@@ -89,6 +90,10 @@ This project allows you:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
+
+## Live Demo <a name="live-demo"></a>
+
+- [Live Demo Version](https://salary-manager.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
