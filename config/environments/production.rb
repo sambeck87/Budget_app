@@ -46,7 +46,7 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
-  config.action_mailer.default_url_options = { host: 'https://my-recipes-jx0z.onrender.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'https://salary-manager.onrender.com', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp-relay.sendinblue.com',
