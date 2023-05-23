@@ -3,7 +3,7 @@
 <div class='headlines text'>$<%=@total_amount%>0 </div>
 </div>
 
-<div id="groups" class='general_text text'>
+<div class='general_text text groups'>
   <% @groups.each do |group| %>
   <%= link_to user_group_path(id: group.id) do%>
   <div>

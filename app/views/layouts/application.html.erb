@@ -12,23 +12,27 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <div class="bd-example">
       <nav class="navbar navbar-dark bg_primary">
         <div class="container-fluid">
           <% if request.url.include?('sign_in') || request.url.include?('sign_up') || request.url.include?('password/new') %>
-            <%= link_to "<-", root_path, class: "btn white" %>
+            <%= link_to(root_path, class: "btn white") do %>
+              <%= image_tag("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAuElEQVRIS+WU7Q1AMBCG3QY2YQQmYgQmYwQ2sUG9TVqhrY/LnR9CIhGp5+m9PUfZyxe9zM9+IjDG5IiyIaKeG+ltRA4+AFzi7iHpOJJLQQCfAa4gWFQEGnC7kWQFWvCkQBMeCbThB0EA55xjtBaNsEW/PTjBiNWFiG4PNiWw0EAy4VXNbctwc1EXaUuu2tTHJark9E/WquTJqBBV8nTYeYnusPMd4eJquZP0dBZJ/4P997cRSWXfF6zr61YZ6ge/IwAAAABJRU5ErkJggg==") %>
+            <% end %>
           <% elsif request.url.include?('entities/new') %>
-            <%= link_to "<-", user_group_path(current_user.id, params[:group_id]), class: "btn white" %>
+            <%= link_to(user_group_path(current_user.id, params[:group_id]), class: "btn white") do %>
+              <%= image_tag("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAuElEQVRIS+WU7Q1AMBCG3QY2YQQmYgQmYwQ2sUG9TVqhrY/LnR9CIhGp5+m9PUfZyxe9zM9+IjDG5IiyIaKeG+ltRA4+AFzi7iHpOJJLQQCfAa4gWFQEGnC7kWQFWvCkQBMeCbThB0EA55xjtBaNsEW/PTjBiNWFiG4PNiWw0EAy4VXNbctwc1EXaUuu2tTHJark9E/WquTJqBBV8nTYeYnusPMd4eJquZP0dBZJ/4P997cRSWXfF6zr61YZ6ge/IwAAAABJRU5ErkJggg==") %>
+            <% end %>
           <% elsif request.url.include?('groups/') %>
-            <%= link_to "<-", user_groups_path(current_user.id), class: "btn white" %>
+            <%= link_to(user_groups_path(current_user.id), class: "btn white") do %>
+              <%= image_tag("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAuElEQVRIS+WU7Q1AMBCG3QY2YQQmYgQmYwQ2sUG9TVqhrY/LnR9CIhGp5+m9PUfZyxe9zM9+IjDG5IiyIaKeG+ltRA4+AFzi7iHpOJJLQQCfAa4gWFQEGnC7kWQFWvCkQBMeCbThB0EA55xjtBaNsEW/PTjBiNWFiG4PNiWw0EAy4VXNbctwc1EXaUuu2tTHJark9E/WquTJqBBV8nTYeYnusPMd4eJquZP0dBZJ/4P997cRSWXfF6zr61YZ6ge/IwAAAABJRU5ErkJggg==") %>
+            <% end %>
           <% else %>
             <button class="navbar-toggler white" type="button"  aria-label="navigation">
-            <span class="navbar-toggler-icon white  "></span>
+              <span class="navbar-toggler-icon white  "></span>
             </button>
           <% end %>
-
           <% if request.url.include?('groups/') && !request.url.include?('groups/new') %>
             <span class="navbar-text headlines">TRANSACTIONS</span>
           <% elsif request.url.include?('groups/new') %>
@@ -44,8 +48,6 @@
           <% else %>
             <%# comment %>
           <% end %>
-
-
           <% if user_signed_in? %>
             <%= link_to "Log-out", destroy_user_session_path, class:"btn btn-warning" %>
           <% elsif request.url.include?('sign_in') %>
@@ -59,16 +61,15 @@
         </div>
       </nav>
     </div>
-
     <% if notice%>
-       <div class="alert alert-success" role="alert"><%= notice %>
-       </div>
-     <% end %>
-     <% if alert%>
-       <div class="alert alert-danger" role="alert"><%= alert %>
-       </div>
-     <%end%>
+      <div class="alert alert-success" role="alert"><%= notice %>
+      </div>
+    <% end %>
+    <% if alert%>
+      <div class="alert alert-danger" role="alert"><%= alert %>
+      </div>
+    <%end%>
     <%= yield %>
   </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

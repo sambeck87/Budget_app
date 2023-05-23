@@ -2,19 +2,19 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <br>
-  <div class="field">
+  <div class="field max_width">
     <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class:"max_width fields general_text text" %>
   </div>
 
-  <div class="field">
+  <div class="field max_width">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"max_width fields general_text text" %>
   </div>
 
-  <div class="field">
+  <div class="field max_width">
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class:"max_width fields general_text text" %>
   </div>
 
-  <div class="field">
+  <div class="field max_width">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class:"max_width fields general_text text" %>
   </div>
 
