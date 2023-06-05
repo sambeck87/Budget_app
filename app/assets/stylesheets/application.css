@@ -101,7 +101,7 @@ a {
   margin-bottom: 100px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .new_user {
     display: flex;
     flex-direction: column;
