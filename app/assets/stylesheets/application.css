@@ -1,5 +1,6 @@
 body {
   background-color: rgb(250, 240, 239);
+  height: 100vh;
 }
 
 a {
@@ -12,7 +13,7 @@ a {
 }
 
 .fields {
-  padding: 2vw;
+  padding: 15px;
   border: 1px solid rgb(250, 240, 239);
 }
 
@@ -49,10 +50,11 @@ a {
 .total_amount {
   background-color: white;
   font-weight: bold;
-  padding: 4vw 0;
+  padding: 15px 0;
   margin-bottom: 4vw;
 }
 
+.prev_total,
 .prev_trans {
   display: flex;
   flex-direction: row;
@@ -80,7 +82,7 @@ a {
 .green {
   background-color: #5fb523;
   width: 100%;
-  height: 20vw;
+  height: 60px;
   align-content: space-evenly;
   position: fixed;
   bottom: 0;
@@ -92,6 +94,71 @@ a {
   height: 70%;
   color: white;
   font-weight: bold;
-  padding: 3vw 0;
   text-align: center;
+}
+
+.groups {
+  margin-bottom: 100px;
+}
+
+@media screen and (min-width: 769px) {
+  .new_user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .max_width {
+    max-width: 500px;
+  }
+
+  .fixed-bottom {
+    margin: auto;
+  }
+
+  .icon {
+    width: 3vw;
+    height: 3vw;
+    margin: 0 10px 0 0;
+  }
+
+  .group_name {
+    font-size: 27px;
+  }
+
+  .date {
+    font-size: 15px;
+  }
+
+  .groups {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .prev_trans {
+    height: 80%;
+    padding: 10px 10px;
+    margin: 0 20px;
+  }
+
+  .prev_total {
+    padding: 0;
+  }
+
+  .button_to {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .field {
+    margin-top: 50px;
+  }
+
+  .green {
+    width: 30%;
+    position: relative;
+    margin: auto;
+  }
 }

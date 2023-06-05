@@ -46,13 +46,13 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
-  config.action_mailer.default_url_options = { host: 'https://my-recipes-jx0z.onrender.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'https://salary-manager.onrender.com', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp-relay.sendinblue.com',
     port:                 587,
-    user_name:            'microverstests@gmail.com',
-    password:             '3XpUFO7I5RhAj4a8',
+    user_name:            'sandro_mipb@hotmail.com',
+    password:             ENV['MAILER_PASS'],
     authentication:       'login',
     enable_starttls_auto: true
 }
